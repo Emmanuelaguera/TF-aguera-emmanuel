@@ -1,12 +1,12 @@
 import React from 'react'
-import ItemList from './ItemList'
+import { useEffect, useState, } from 'react'
 import { useParams } from 'react-router-dom'
-import { useState, useEffect } from 'react'
-import { Center } from '@chakra-ui/react'
+import ItemDetail from './ItemDetail.jsx'
 
-const ItemListContainer = () => {
-  const { category } = useParams()
-  const [filtrado, setFiltrado] = useState([])
+const ItemDetailContainer = () => {
+  const { id } = useParams()
+  const [filtrado, setFiltrado] = useState(null)
+  const [bandera, setBandera] = useState(true)
   const productos = [
     { id: "1", name: "The Last Of As", description: "Terror, Accion y Aventura", stock: "15", price: 5200, category: "cat1" },
     { id: "2", name: "Apex Legend", description: "Battle Royale", stock: "8", price: 2200, category: "cat2" },
@@ -24,33 +24,36 @@ const ItemListContainer = () => {
       reject(" No se encuentra el producto en nuestro Stock")
     }
   })
+  mostrarProductos
+    .then((resultado) => {
+      //console.log(resultado)
+    })
+    .catch((error) => {
 
-  // mostrarProductos
-  //   .then((resultado) => {
-  //     console.log(resultado)
-  //   })
-  //   .catch((error) => {
-
-  //   })
+    })
 
 
   //const filteredProduts = productos.filter((productos => productos.category == "cat1"))
   useEffect(() => {
-    if (category) {
-      const filteredProduts = productos.filter((productos => productos.category == category))
-      setFiltrado(filteredProduts)
-    }
-    else {
-      setFiltrado(productos)
-    }
+    console.log(id)
 
-  }, [category])
+    const filteredProduts = productos.find((producto => producto.id === id))
+
+    setFiltrado(filteredProduts)
+    setBandera(false)
+    console.log (filteredProduts)
+
+
+  }, [id])
+
 
   return (
-    <Center p='1rem'>
-      <ItemList productos={filtrado} />
-    </Center>
+
+    <div >
+      {bandera ? "CARGANDO" : <ItemDetail filtrado={filtrado} />}
+    </div>
+
   )
 }
 
-export default ItemListContainer
+export default ItemDetailContainer

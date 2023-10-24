@@ -11,7 +11,7 @@ const CartWidget = () => {
         </Box>
         <Divider />
         <Box>
-          <Badge colorScheme='green'>9</Badge>
+          <Badge colorScheme='green'>0</Badge>
         </Box>
 
       </Flex>
