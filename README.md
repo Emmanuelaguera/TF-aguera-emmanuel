@@ -1,3 +1,3 @@
 # React + Vite
 
-![Alt text](Animation.gif)
+![Alt text](<Sector Games Tandil.gif>)
