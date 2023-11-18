@@ -1,22 +1,21 @@
 import React from 'react'
-import ItemCounter from './ItemCount'
 import Item from './Item'
+import { Center } from '@chakra-ui/react'
 
-const ItemDetail = ({ filtrado }) => {
-  console.log(filtrado)
+const ItemDetail = ({ item }) => {
+
   return (
     <div>
-      <Item
-        name={filtrado.name}
-        id={filtrado.id}
-        description={filtrado.description}
-        price={filtrado.price}
-        stock={filtrado.stock}
-      />
-      <ItemCounter />
-
+      <Center>
+        <Item
+          img={item.img}
+          name={item.name}
+          id={item.id}
+          description={item.description}
+          price={item.price}
+        />
+      </Center>
     </div>
   )
 }
-
 export default ItemDetail

@@ -1,11 +1,12 @@
 import React from 'react'
+import { Flex } from '@chakra-ui/react'
 import Item from './Item'
 
 
 const ItemList = ({ productos }) => {
   
   return (
-    <div>
+    <Flex gap={4} flexWrap="wrap" justifyContent="center">
       {
         productos.map((p) => {
           return(
@@ -14,12 +15,12 @@ const ItemList = ({ productos }) => {
             name={p.name}
             id={p.id}
             description={p.description}
+            img={p.img}
             price={p.price}
-            stock={p.stock}
           />)
         })
       }
-    </div>
+    </Flex>
   )
 }
 

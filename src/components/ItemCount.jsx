@@ -1,23 +1,14 @@
 import React from 'react'
-import { useState } from 'react'
-import { Button } from '@chakra-ui/react'
+import { Button, Flex } from '@chakra-ui/react'
 
-const ItemCounter = () => {
-    const [count, setCount] = useState(0)
-
-    const increment = () => {
-        setCount(count + 1)
-    }
-
-    const decrement = () => {
-        setCount(count - 1)
-    }
-
+const ItemCounter = ({quantity, increment, decrement}) => {
     return (
         <div>
-            <h2>contador: {count}</h2>
-            <Button onClick={() => increment()}>+</Button>
-            <Button onClick={() => decrement()} >-</Button>
+            <h2>Cantidad: {quantity}</h2>
+            <Flex gap={2}>
+                <Button onClick={decrement} isDisabled={quantity === 1}>-</Button>
+                <Button onClick={increment}>+</Button>
+            </Flex>
         </div>
     )
 }

@@ -9,7 +9,7 @@ const NavBar = () => {
     <Flex>
       <Box>
         <Link to="/">
-        <h1>Logo</h1>
+    <img src="logo.jpg"/>
         </Link>
       </Box>
       <Spacer />
@@ -19,26 +19,26 @@ const NavBar = () => {
             Categorias
           </MenuButton>
           <MenuList>
-            <MenuItem>
-              <Link to="/categoria/cat1">
+            <Link to="/categoria/PlayStation">
+              <MenuItem>
                 PlayStation
-              </Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to="/categoria/cat2">
+              </MenuItem>
+            </Link>
+            <Link to="/categoria/xbox">
+              <MenuItem>
                 xbox
-              </Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to="/categoria/cat3">
+              </MenuItem>
+            </Link>
+            <Link to="/categoria/PC">
+              <MenuItem>
                 PC
-              </Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to="/categoria/cat4">
+              </MenuItem>
+            </Link>
+            <Link to="/categoria/Nintendo">
+              <MenuItem>
                 Nintendo
-              </Link>
-            </MenuItem>
+              </MenuItem>
+            </Link>
           </MenuList>
         </Menu>
       </Box>
